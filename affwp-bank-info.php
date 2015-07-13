@@ -28,8 +28,8 @@ class Aff_Bank_Details {
 	 */
 	public function bank_details_form() {
 		$saved_data     = get_user_meta( get_current_user_id(), 'affwp_bank_details', true );
-		$bank_name      = isset( $_POST['bank_name'] ) ? esc_attr( $_POST['bank_name'] ) : $saved_data['bank_name'];
-		$account_name   = isset( $_POST['account_name'] ) ? esc_attr( $_POST['account_name'] ) : $saved_data['account_name'];
+		$bank_name      = isset( $_POST['bank_name'] ) ? esc_attr( $_POST['bank_name'] ) : @$saved_data['bank_name'];
+		$account_name   = isset( $_POST['account_name'] ) ? esc_attr( $_POST['account_name'] ) : @$saved_data['account_name'];
 		$account_number = isset( $_POST['account_number'] ) ? esc_attr( $_POST['account_number'] ) : @$saved_data['account_number'];
 		$phone_number   = isset( $_POST['phone_number'] ) ? esc_attr( $_POST['phone_number'] ) : @$saved_data['phone_number'];
 		?>
@@ -78,10 +78,10 @@ class Aff_Bank_Details {
 	 */
 	public function admin_bank_details_form( $affiliate ) {
 		$saved_data     = get_user_meta( $affiliate->user_id, 'affwp_bank_details', true );
-		$bank_name      = isset( $_POST['bank_name'] ) ? esc_attr( $_POST['bank_name'] ) : $saved_data['bank_name'];
-		$account_name   = isset( $_POST['account_name'] ) ? esc_attr( $_POST['account_name'] ) : $saved_data['account_name'];
-		$account_number = isset( $_POST['account_number'] ) ? esc_attr( $_POST['account_number'] ) : $saved_data['account_number'];
-		$phone_number   = isset( $_POST['phone_number'] ) ? esc_attr( $_POST['phone_number'] ) : $saved_data['phone_number'];
+		$bank_name      = isset( $_POST['bank_name'] ) ? esc_attr( $_POST['bank_name'] ) : @$saved_data['bank_name'];
+		$account_name   = isset( $_POST['account_name'] ) ? esc_attr( $_POST['account_name'] ) : @$saved_data['account_name'];
+		$account_number = isset( $_POST['account_number'] ) ? esc_attr( $_POST['account_number'] ) : @$saved_data['account_number'];
+		$phone_number   = isset( $_POST['phone_number'] ) ? esc_attr( $_POST['phone_number'] ) : @$saved_data['phone_number'];
 		?>
 		<tr class="form-row form-required">
 			<th scope="row">
